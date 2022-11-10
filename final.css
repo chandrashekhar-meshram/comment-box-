@@ -1,0 +1,99 @@
+*{    
+    margin: 0;
+    padding: 0;
+}  
+body{
+    background-color: crimson;
+    color: white;
+}
+
+/* .wrapper{
+    background-color: tomato;
+} */
+h2{
+    text-align: center;
+    margin: 10px 0px;
+}
+.comment-box{
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-template-columns: 1fr;
+    place-items: center;
+    background-color: tomato;
+}
+#textArea{
+    height: 80px;
+    width: 50vw;
+    margin-top: 3vw; 
+    padding: 5px;
+    border-radius: 15px; 
+    font-size: 16px;
+}
+#input-btn{
+    margin-top: 5px;
+    height: 40px;
+    width: auto;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 5px;
+    border-color: maroon;
+    border-width: 5px;
+}
+#displayArea{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    width: 50vw;
+    margin-left: 25vw;
+    row-gap: 10px;
+    /* background-color: salmon; */  
+    font-size: 20px;     
+}
+.all-reply-input{
+    margin: 5px 0px;
+    font-size: 20px;
+    background-color: tomato;
+}
+.btn{
+    height: 43px;
+    width: 75px;
+/* -------------------- */
+    /* height: auto;
+    width: auto; */
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 7px;
+    border-color: maroon;
+    border-width: 1px;
+}
+.comments-div{
+    border-radius: 1px solid white;
+}
+.comments{
+    margin-bottom: 10px;
+}
+.input-area{
+    height: 60px;
+    width: 40vw;
+    margin-top: 3vw; 
+    padding: 5px;
+    border-radius: 15px; 
+    font-size: 16px;
+}
+/* .like{
+    height: 10vw;
+    width: 20vw;
+}
+.like-img{
+    height: 10vw;
+    width: 20vw;
+} */
+.delete-btn{
+    height: 43px !important;
+    width: 65px !important;
+}
+.reply-btn{
+    height: 43px !important;
+    width: 65px !important;
+}
