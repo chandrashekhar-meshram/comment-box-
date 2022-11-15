@@ -1,7 +1,7 @@
 * {
-    padding: 0;   
+    padding: 0;
+    box-sizing: border-box;
     margin-bottom: 10px;
-    box-sizing: border-box;   
 }
 
 body{
@@ -9,9 +9,16 @@ body{
     color: white;
 }
 
-h1{
-    margin-left: 110px;
-    /* border-color: coral; */
+#heading1{
+    margin-left: 80px;
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+#heading2{
+    margin-top: 0;
+    margin-left: 100px;
+    text-decoration: underline;
 }
 
 .container {
@@ -22,13 +29,13 @@ h1{
 }
 
 .container>label {
-    text-align: center; 
-    font-size: 22px;
-    text-decoration: underline;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 80px;
+    width: 100vw;
 }
 
 #comment {
-    /* background-color: cornflowerblue; */
     background-color: whitesmoke;
     height: 80px;
     width: 350px;
@@ -61,7 +68,10 @@ h1{
 
 #allComments{
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
 }
+
 .wrapper>textarea {
     background-color:rgb(255, 133, 105);
     height: 50px;

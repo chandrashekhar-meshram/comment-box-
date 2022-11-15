@@ -1,7 +1,6 @@
-
-
 //create commentContainer variable 
 const commentContainer = document.getElementById('allComments');
+
 
 // part 1   => function to get the local data
 window.onload = function setTemplate() {
@@ -12,19 +11,17 @@ window.onload = function setTemplate() {
 
 // part 2  => function to save data in local storage
 function saveToLocal() {
-    // localStorage.setItem('template', document.getElementById('allComments').innerHTML);
     localStorage.setItem('template', commentContainer.innerHTML);
 }
 
-// part 5  - https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_html_hasclass
+// part 3  - 
 // checking class name present or not ..if class present return true otherwise false
 function hasClass(elem, className) {
-    // console.log(elem.className.split(' ').indexOf(className)); // output: true or false
     return elem.className.split(' ').indexOf(className) > -1;
 }
 
 
-// part 3  => Add comments dynamically
+// part 4  => Add comments dynamically
 //reply, like ,delete buttons  
 function addComment(ev) {
     let commentText, wrapDiv;
@@ -66,7 +63,6 @@ function addComment(ev) {
             wrapDiv.append(textBox, replyButton, likeButton, deleteButton);
             commentContainer.appendChild(wrapDiv);
         }
-
     }
     else {
         // this is for child comment add
@@ -89,20 +85,14 @@ function addComment(ev) {
     saveToLocal();
 }
 
-// // part 4
+// part 5
 // adding event listner onbutton click to call addComment
 document.getElementById('addComments').addEventListener('click', function (ev) {
-    // call addComment function
     addComment(ev);
 });
-// // Add comments dynamically  ends here
-
-// //https://javascript.info/localstorage
 
 
-
-
-// // part 6
+// part 6
 document.getElementById('allComments').addEventListener('click', function (e) {
     // creating HTML for reply
     if (hasClass(e.target, 'reply')) {
@@ -129,20 +119,18 @@ document.getElementById('allComments').addEventListener('click', function (e) {
     }
 
     // adding all the html data from addComment function for reply
-
     else if (hasClass(e.target, 'addReply')) {
         addComment(e);
     }
 
     // adding like on button click
-
     else if (hasClass(e.target, 'likeComment')) {
         const likeBtnValue = e.target.innerHTML;
         e.target.innerHTML = likeBtnValue !== 'Like' ? Number.parseInt(likeBtnValue) + 1 + " Like" : 1 + " Like";
         saveToLocal();
     }
+    
     // cancel reply on button click
-
     else if (hasClass(e.target, 'cancelReply')) {
         e.target.parentElement.innerHTML = '';
         saveToLocal();
