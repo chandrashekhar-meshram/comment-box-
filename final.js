@@ -4,7 +4,6 @@ const commentContainer = document.getElementById('allComments');
 
 // part 1   => function to get the local data
 window.onload = function setTemplate() {
-    // document.getElementById('allComments').innerHTML = localStorage.getItem('template');
     commentContainer.innerHTML = localStorage.getItem('template');
 };
 
@@ -82,7 +81,7 @@ function addComment(ev) {
             wrapDiv.append(textBox, replyButton, likeButton, deleteButton);
         }
     }
-    saveToLocal();
+    //saveToLocal();
 }
 
 // part 5
@@ -91,11 +90,13 @@ document.getElementById('addComments').addEventListener('click', function (ev) {
     addComment(ev);
 });
 
-
+let flag = 0;    
 // part 6
 document.getElementById('allComments').addEventListener('click', function (e) {
+    
     // creating HTML for reply
     if (hasClass(e.target, 'reply')) {
+       
         const parentDiv = e.target.parentElement;
         const wrapDiv = document.createElement('div');
         wrapDiv.style.marginLeft = (Number.parseInt(parentDiv.style.marginLeft) + 15).toString() + 'px';
@@ -113,32 +114,46 @@ document.getElementById('allComments').addEventListener('click', function (e) {
         cancelButton.innerHTML = 'Cancel';
         cancelButton.className = 'cancelReply';
 
-        wrapDiv.append(textArea, addButton, cancelButton);
-        parentDiv.appendChild(wrapDiv);
-
+           
+        if(flag === 0){
+            wrapDiv.append(textArea, addButton, cancelButton);     
+            parentDiv.appendChild(wrapDiv);
+            document.getElementsByClassName("reply").disabled = true;
+            flag++;
+            console.log('inside-flag',flag);
+        } 
+        // else {
+        //     flag--;
+        //     document.getElementsByClassName("reply").disabled = true;
+        // }      
+        console.log('outside-flag',flag);
     }
 
     // adding all the html data from addComment function for reply
     else if (hasClass(e.target, 'addReply')) {
         addComment(e);
+        flag--;
+        document.getElementsByClassName("reply").disabled = false;
     }
 
     // adding like on button click
     else if (hasClass(e.target, 'likeComment')) {
         const likeBtnValue = e.target.innerHTML;
         e.target.innerHTML = likeBtnValue !== 'Like' ? Number.parseInt(likeBtnValue) + 1 + " Like" : 1 + " Like";
-        saveToLocal();
+        //saveToLocal();
     }
     
     // cancel reply on button click
     else if (hasClass(e.target, 'cancelReply')) {
         e.target.parentElement.innerHTML = '';
-        saveToLocal();
+        //saveToLocal();
+        flag--;
+        document.getElementsByClassName("reply").disabled = false;
     }
 
     // delete entire  comment chain
     else if (hasClass(e.target, 'deleteComment')) {
         e.target.parentElement.remove();
-        saveToLocal();
+        //saveToLocal();
     }
 });
