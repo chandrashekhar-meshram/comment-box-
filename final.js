@@ -91,6 +91,7 @@ document.getElementById('addComments').addEventListener('click', function (ev) {
 });
 
 let flag = 0;    
+console.log('outside-flag',flag);
 // part 6
 document.getElementById('allComments').addEventListener('click', function (e) {
     
@@ -113,20 +114,15 @@ document.getElementById('allComments').addEventListener('click', function (e) {
         const cancelButton = document.createElement('button');
         cancelButton.innerHTML = 'Cancel';
         cancelButton.className = 'cancelReply';
-
            
         if(flag === 0){
             wrapDiv.append(textArea, addButton, cancelButton);     
             parentDiv.appendChild(wrapDiv);
             document.getElementsByClassName("reply").disabled = true;
             flag++;
+            
             console.log('inside-flag',flag);
-        } 
-        // else {
-        //     flag--;
-        //     document.getElementsByClassName("reply").disabled = true;
-        // }      
-        console.log('outside-flag',flag);
+        }
     }
 
     // adding all the html data from addComment function for reply
@@ -134,6 +130,7 @@ document.getElementById('allComments').addEventListener('click', function (e) {
         addComment(e);
         flag--;
         document.getElementsByClassName("reply").disabled = false;
+        console.log('after addreply-flag',flag);
     }
 
     // adding like on button click
