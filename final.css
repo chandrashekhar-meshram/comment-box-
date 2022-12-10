@@ -5,7 +5,14 @@
 }
 
 body{
-    background-color: crimson;
+/*     background-color: crimson; */
+    
+    background: radial-gradient(
+    circle,
+    rgba(255, 0, 228, 1) 0%,
+    rgba(212, 51, 16, 1) 84%,
+    rgba(255, 0, 95, 1) 100%
+        
     color: white;
 }
 
